@@ -1,0 +1,14 @@
+<p><%= link_to "back to index", cocktails_path %></p>
+<h1><%= @cocktail.name %></h1>
+<p><%=@cocktail.img_url%></p>
+<img src="<%= @cocktail.img_url %>" alt="cocktail image">
+
+<%= link_to "Add Dose", new_cocktail_dose_path(@cocktail) %>
+<ul><br>
+  <% @cocktail.doses.each do |dose| %>
+    <li><%= dose.description %> <%= dose.ingredient.name %>
+      <%= link_to "delete", dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+
+</ul>
