@@ -1,9 +1,17 @@
 <p><%= link_to "back to index", cocktails_path %></p>
 <h1><%= @cocktail.name %></h1>
-<p><%=@cocktail.img_url%></p>
-<img src="<%= @cocktail.img_url %>" alt="cocktail image">
 
-<%= link_to "Add Dose", new_cocktail_dose_path(@cocktail) %>
+<div class="container" id="cocktail_image">
+  <img src="<%= @cocktail.img_url %>" alt="cocktail image">
+</div>
+<!-- link_to "Add Dose", new_cocktail_dose_path(@cocktail), { class: "btn btn-warning", id: "add_dose" }
+ -->
+<div class="btn btn-warning" id="dose_button">Gimme a Dose!</div>
+
+<div id="dose_form" class="container invisible">
+  <%= render "/doses/dose_form" %>
+</div>
+
 <ul><br>
   <% @cocktail.doses.each do |dose| %>
     <li><%= dose.description %> <%= dose.ingredient.name %>

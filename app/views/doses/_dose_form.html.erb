@@ -1,0 +1,8 @@
+<div class="container w-50">
+  <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient %>
+  <!-- f.input :ingredient, collection: Ingredient.all -->
+  <%= f.submit "Easy Dose it!", { class: "btn btn-danger"} %>
+  <% end %>
+</div>
