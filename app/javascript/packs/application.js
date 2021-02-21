@@ -17,4 +17,10 @@ import { toggleForm } from '../components/dose_form';
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-toggleForm()
+
+
+document.addEventListener('turbolinks:load', () => {
+  if (document.querySelector("#dose_form") !== null) {
+    toggleForm();
+  };
+});

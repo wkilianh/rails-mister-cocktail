@@ -3,12 +3,14 @@
 <div class="container p-3">
   <div class="row justify-content-center">
     <% @cocktails.each do |cocktail| %>
-      <div class="card col-3 p-3 m-3" id="index_card" style="background-image: url(<%= cocktail.img_url %>);
+      <div class="card col-3 p-3 m-3" id="index_card" style="background-image: url('<%= cl_image_path cocktail.cocktail_photo.key, height: 300, width: 400, crop: :fill %>')";
         background-size: cover; background-position: center center;">
         <h4><%= cocktail.name %></h4>
         <%= link_to "Details", cocktail_path(cocktail) %>
       </div>
     <% end %>
   </div>
-
 </div>
+
+<!--
+ -->

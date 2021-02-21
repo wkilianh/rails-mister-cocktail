@@ -1,15 +1,17 @@
 
 const toggleForm = () => {
-
   console.log('Hi!');
   const doseForm = document.querySelector("#dose_form");
   const doseButton = document.querySelector("#dose_button");
-  console.log(dose_form);
+  console.log(dose_button);
 
-  document.addEventListener("click", (event) => {
+  doseButton.addEventListener("click", (event) => {
       console.log('Hi again!');
-      doseForm.classList.toggle("invisible");
+      doseForm.classList.toggle("not-visible")
     });
 }
 
-export { toggleForm }
+export { toggleForm };
+
+
+

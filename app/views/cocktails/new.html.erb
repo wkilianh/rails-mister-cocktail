@@ -1,6 +1,9 @@
-<h1>Add a Cocktail</h1>
-<%= simple_form_for @cocktail do |f| %>
-<%= f.input :name %>
-<%= f.input :img_url %>
-<%= f.submit %>
-<% end %>
+<%= render "navbar" %>
+<div class="container">
+  <h1>Add a Cocktail</h1>
+  <%= simple_form_for @cocktail do |f| %>
+  <%= f.input :name %>
+  <%= f.input :cocktail_photo, as: :file %>
+  <%= f.submit %>
+  <% end %>
+</div>

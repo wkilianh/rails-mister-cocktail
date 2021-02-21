@@ -1,22 +1,28 @@
-<p><%= link_to "back to index", cocktails_path %></p>
-<h1><%= @cocktail.name %></h1>
-
-<div class="container" id="cocktail_image">
-  <img src="<%= @cocktail.img_url %>" alt="cocktail image">
-</div>
+<!-- <div class="container" id="cocktail_image">
+  <%= cl_image_tag @cocktail.cocktail_photo.key %>
+</div> -->
 <!-- link_to "Add Dose", new_cocktail_dose_path(@cocktail), { class: "btn btn-warning", id: "add_dose" }
  -->
-<div class="btn btn-warning" id="dose_button">Gimme a Dose!</div>
+<%= render "navbar" %>
 
-<div id="dose_form" class="container invisible">
-  <%= render "/doses/dose_form" %>
+<div class="container">
+  <h1><%= @cocktail.name %></h1>
+  <div class="card" id="show_card" style = "background-image: url('<%= cl_image_path @cocktail.cocktail_photo.key, height: 300, width: 400, crop: :fill %>'">
+    <div class="btn btn-warning" id="dose_button">Gimme a Dose!</div>
+  </div>
+
+  <div>
+    <div id="dose_form" class="container not-visible">
+      <%= render "/doses/dose_form" %>
+    </div>
+  </div>
+
+  <ul><br>
+    <% @cocktail.doses.each do |dose| %>
+      <li><%= dose.description %> <%= dose.ingredient.name %>
+        <%= link_to "delete", dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+  </ul>
 </div>
 
-<ul><br>
-  <% @cocktail.doses.each do |dose| %>
-    <li><%= dose.description %> <%= dose.ingredient.name %>
-      <%= link_to "delete", dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
-  <% end %>
-
-</ul>

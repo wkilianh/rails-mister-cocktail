@@ -5,6 +5,14 @@
   height: 150px;
 }
 
+#show_card {
+  height: 400px;
+  width: 50%
+}
+
+.not-visible {
+  display: none;
+}
 
 a {
   color: white;
@@ -16,7 +24,14 @@ h4 {
   color: white;
 }
 
+h1 {
+  color: white;
+}
 
 .li {
   color: black;
   }
+
+body {
+  background-color: #073B4C;
+}
